@@ -1,0 +1,83 @@
+DATE:        January 24, 2023
+TO:            Abhay Samant, Taniya Bhosle
+FROM:      Harshika Jha, Suprita Ashok, Ishan Kumar, Adal Ordonez  
+
+SUBJECT:  Proof of Concept for a Functioning HaaS System that Addresses Stakeholder Needs
+
+1.0 GENERAL INFORMATION
+Sprint Duration and Velocity
+  Our sprint duration will be one week - each week we strive to complete two work items per week. 
+  
+Infrastructure Management/Collaboration Tools
+  The Minimum Viable Product will be completed, referenced, and updated throughout the semester using LucidChart
+  GitHub will be used for updating and collaborating on work items by evaluating our progress on user stories, technical debt, and research 
+  Repositories and progress on code will be maintained on this platform as well
+  Text message will be utilized for communication between team members 
+  
+Implementation Methodology 
+  Our team will meet in person for at least 3 hours per wook to do collaborative work
+  Specific tasks will be assigned to individual team members to complete on their own time
+  Discussions for progress and planning will occur via Zoom or In-Person
+  Meeting notes will be taken weekly
+  
+  
+2.0 STAKEHOLDER NEEDS
+SN1: Create and maintain secure user accounts and projects on the system
+  Project features:
+    Should have the following buttons:
+      Save
+      Update
+      Add User
+      Add Part
+      Delete Part
+      Delete User
+      Export Project
+      Open Project
+    Feature: users have their own copy of their projects that have a direct pipeline to the 
+    cloud database - it should store recently saved commitments and changes
+    Feature: users must login using their userId and password - the password will 
+    be protected through encryption - alphanumeric and >8 characters long 
+    Feature: individual user projects are encrypted as well so that other users do not have access
+    to the owner’s project - projects have their own login
+    
+SN2: View the status of all hardware resources in the system
+  Feature: hardware resources are stored in a database using MongoDB 
+  Feature: hardware resources can be implemented in a project in two ways - adding/delete to a
+  (1) shopping cart and (2) wishlist. 
+  Feature: display categories of hardware resources using filters (company, part type, name,
+  Inventory
+  Feature: Each resource object has the following fields: name, description, company, part type
+  inventory.
+  Feature: update hardware resources and display on storefront in real-time - use clock to 
+  update front-end every 5 sec; backend is updated immediately and takes priority 
+  Feature: a successful request is defined as a user adding an available item (in accordance
+  to the database)
+
+SN3: Request available hardware resources and datasets from published sources
+  Feature: Implement a request placing system
+  Feature: Service and send feedback either approving or rejecting a request
+  Feature: Requests should be handled by cloud server
+  Feature: Implement a resource management system using a database
+  Feature: Hardware resources should be categorized, filterable, and searchable
+  
+SN4: Once approved, checkout and manage these resources
+  Feature: Once a request has been approved, update inventory database
+  Feature: There should be a logfile containing all reques history
+  Feature: User homepage should have all hardware parts checked out to their account
+  Feature: Hardware resources should have a 15 day checkout limit
+  Feature: Front end should be updated to reflect the changed status of this resource
+  
+SN5: Check-in the resources and get status of all hardware resources in the system
+  Feature: Collect userdata/ratings from those who return a hardware part
+  Feature: Automatic checkin after 15 days
+  Feature: Checkins should update inventory database
+  Feature: Front end should be updated to reflect the changed status of this resource
+  
+ SN6: Deliver PoC within schedule constraints, with support for scalability
+  Feature: Configurations for the application will be set using a configuration file
+  Feature: Agile Methodology used to ensure structured working style and on-time project delivery
+
+
+
+
+
