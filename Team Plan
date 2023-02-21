@@ -26,22 +26,24 @@ SN1: Create and maintain secure user accounts and projects on the system
   Project features:
     Should have the following buttons:
       Save
-      Update
       Add User
       Add Part
-      Delete Part
-      Delete User
-      Export Project
       Open Project
     Feature: users have their own copy of their projects that have a direct pipeline to the 
     cloud database - it should store recently saved commitments and changes
     Feature: users must login using their userId and password - the password will 
-    be protected through encryption - alphanumeric and >8 characters long 
+    be protected through encryption - alphanumeric and >8 characters long. There will be  New User button which will create a new user
+    Feature:  user will have an area in the Homepage where they can create a new Project and add to DB or login to an existing one
     Feature: individual user projects are encrypted as well so that other users do not have access
     to the owner’s project - projects have their own login
     
 SN2: View the status of all hardware resources in the system
+                               MVP:
   Feature: hardware resources are stored in a database using MongoDB 
+  Feature: shows capacity and availabikty of HWsets
+  Feature: HWset database storing and retreiving
+  Feature: display area shows how many units users wants to checkout/checkin
+                              OPTIONAL:
   Feature: hardware resources can be implemented in a project in two ways - adding/delete to a
   (1) shopping cart and (2) wishlist. 
   Feature: display categories of hardware resources using filters (company, part type, name,
