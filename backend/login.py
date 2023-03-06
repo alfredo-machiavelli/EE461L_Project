@@ -1,12 +1,16 @@
+import sys
+import json
+
 from bson import ObjectId
 from getpass import getpass
+from bson.json_util import dumps
 from pymongo import MongoClient
 import pymongo
 
 
 client = MongoClient("mongodb+srv://suprita:jungK00K@supritadb.m2chzrd.mongodb.net/?retryWrites=true&w=majority")
 db = client.UserDB
-collection = db.UserCollection0
+users = db.UserCollection0
 
 # sample fieldst = {"Username": "suprita",
 #         "First Name": "Suprita",
@@ -70,9 +74,19 @@ def decrypt(encrypted_string, N, D):
 
     return result
 
-def signup():
-    print("Welcome to the Hardware Library")
+def login():
+    username = input("Enter your username: ")
+    while users.find_one({"Username": username}) is None:
+        username = input("Username not found. Please try again: ")
+    thisUser =  users.find_one({"Username": username})
+    correctPass = decrypt(str(thisUser["Password"]), 4, -1)
+    password = input("Enter your password: ")
+    while password !=  correctPass:
+        password = input("Incorrect password. Please try again: ")
+    print("Login successful! Welcome!")
+    return
 
+def signup():
     firstName = input("What's your first name? ")
     while not firstName.isalnum():
         firstName= input("Make sure your first name doesn't have any numbers!\n What's your first name? ")
@@ -99,11 +113,23 @@ def signup():
     newUser = {"Username": username,
             "First Name": firstName,
             "Last Name": lasttName,
-            "UserID": ObjectId(),
             "Password": encrypt(password, 4, -1),
             }
 
-    resource_id = collection.insert_one(newUser).inserted_id
+    resource_id = users.insert_one(newUser).inserted_id
     return
+def main():
+    print("Welcome to h/w library!")
+    try:
+        which =input("Would you login, signup, or exit the application?")
+        if which == "login":
+            login()
+        elif which == "signup":
+            signup()
+        elif which == "exit":
+            sys.exit()
+    except KeyboardInterrupt: print("Good Bye!")
 
-signup()
+
+if __name__ == "__main__":
+    main()
