@@ -83,11 +83,7 @@ def login():
     password = input("Enter your password: ")
     while password !=  correctPass:
         password = input("Incorrect password. Please try again: ")
-<<<<<<< HEAD:login.py
     print("Login successful! Welcome " + thisUser["First Name"] + "!")
-=======
-    print("Login successful! Welcome!")
->>>>>>> 36d924f1c002afd35713d4bb3281f87585febedb:backend/login.py
     return
 
 def signup():
@@ -121,10 +117,7 @@ def signup():
             }
 
     resource_id = users.insert_one(newUser).inserted_id
-<<<<<<< HEAD:login.py
     print("Signup successful! Welcome " + firstName + "!")
-=======
->>>>>>> 36d924f1c002afd35713d4bb3281f87585febedb:backend/login.py
     return
 def main():
     print("Welcome to h/w library!")
@@ -136,16 +129,8 @@ def main():
             signup()
         elif which == "exit":
             sys.exit()
-<<<<<<< HEAD:login.py
     except KeyboardInterrupt: print("\nGood Bye!")
 
 
 if __name__ == "__main__":
     main()
-=======
-    except KeyboardInterrupt: print("Good Bye!")
-
-
-if __name__ == "__main__":
-    main()
->>>>>>> 36d924f1c002afd35713d4bb3281f87585febedb:backend/login.py
