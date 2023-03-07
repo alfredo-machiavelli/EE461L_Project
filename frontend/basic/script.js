@@ -12,8 +12,8 @@ function userLoggedIn(){
 
 function SignUp()
 {
-  let userInput = document.getElementById("Username_new").value
-    let userPassword = document.getElementById("Password_new").value
+  let userInput = document.getElementById("Username").value
+    let userPassword = document.getElementById("Password").value
     //call singupfunction in login.py
     //if error then print errorMsg
 }
