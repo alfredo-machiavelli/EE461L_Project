@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import Projects from "./components/Projects";
+import ProjectsList from "./components/ProjectsList";
 
 import './stylesheet.css'
 
 class App extends Component {
   render() {
     return (
-      <div className="container">
-          <Projects/>
+      <div className="column">
+          <ProjectsList/>
       </div>
     );
   }

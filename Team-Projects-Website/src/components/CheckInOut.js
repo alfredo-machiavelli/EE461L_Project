@@ -64,7 +64,10 @@ function CheckInOut() {
         <div className='hwSets'>
           <div className='hwSet'>
             <div className='quantity'>
-              <h3>HWSet1: { HWSet1Qty }/100</h3>
+              <div className='column'>
+              <h3>HWSet1:</h3>
+              <h3> { HWSet1Qty }/100</h3>
+              </div>
             </div>
             <div className='enterQty'>
             <input ref={HWSet1Input} type='text' disabled={`${ JoinedStatus ? '' : 'disabled' }`} placeholder='             Enter Qty'/>
@@ -79,7 +82,10 @@ function CheckInOut() {
 
           <div className='hwSet'>
             <div className='quantity'>
-              <h3>HWSet2: { HWSet2Qty }/100</h3>
+              <div className='column'>
+                <h3>HWSet2:</h3>
+                <h3> { HWSet2Qty }/100</h3>
+              </div>
             </div>
             <div className='enterQty'>
             <input ref={HWSet2Input} type='text' disabled={`${ JoinedStatus ? '' : 'disabled' }`} placeholder='             Enter Qty'/>
