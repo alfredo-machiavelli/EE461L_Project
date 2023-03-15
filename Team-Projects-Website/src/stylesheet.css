@@ -1,0 +1,64 @@
+.container {
+    display: flex;
+    align-items: center;
+}
+.project {
+    width: 96%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(228, 228, 228);
+    border: 1px solid black;
+    margin-top: 10px;
+}
+.projects {
+    margin-top: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border: 1px solid black;
+}
+.projName {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.authUsers {
+    padding-right: 20px;
+}
+.hwSet {
+    margin-top: 5px;
+    margin-bottom: 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.hwSets {
+    display: flex;
+    flex-direction: column;
+}
+.hwSetsAndJoin {
+    display: flex;
+    flex-direction: row;
+}
+.quantity {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.enterQty {
+    padding-right: 20px;
+}
+.check {
+    padding-right: 20px;
+}
+.btn {
+    border-radius: 0;
+    width: 100px;
+}
+h3 {
+    font-size: medium;
+    font-weight: bold;
+}
