@@ -1,0 +1,123 @@
+import logo from './logo.svg';
+import './App.css';
+import { Box, Button, TextField } from '@mui/material';
+import React from 'react';
+
+function App() {
+  return (
+   <Projects/>
+  );
+}
+class Projects extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      slides: Array(3).fill(null),
+	
+    };
+  }
+
+  renderSlides(i) {
+    return <Slides value={this.state.slides[i]} />;
+  }
+renderPoint()
+{
+	return <ExtraPoint/>;
+}
+
+  render() {
+    return (
+      <div className="projects">
+        {this.renderSlides(0)}
+        {this.renderSlides(1)}
+        {this.renderSlides(2)}
+	{this.renderPoint()}
+      </div>
+    );
+  }
+}
+
+class Slides extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      buttonBut: Array(2).fill(null),
+
+    };
+
+  }
+ handleClick() {
+      document.getElementById('slidyslide').style.backgroundColor = 'green';
+     const buttonBut = this.state.buttonBut.slice();
+	 document.getElementById('buttonbutid').style.backgroundColor = 'red';
+   
+
+    this.setState({ buttonBut: buttonBut });
+
+  }
+
+  renderButtonBut(i) {
+    return <ButtonBut/>;
+  }
+
+  render() {
+    return (
+      <div className="slides" name="Project" id = "slidyslide">
+        {this.renderButtonBut(0)}
+ 	  {this.renderButtonBut(1)}
+
+      </div>
+
+
+    );
+  }
+}
+
+class ButtonBut extends React.Component {
+  render() {
+    return (
+      <div className="buttonbut" id = "buttonbutid">
+        <TextField  label="Search" variant="filled" 
+  onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+  	alert('character entered');
+  }}
+/>
+
+ <Button variant="contained" className="buttonbut" onClick={() => {
+    alert('clicked');
+  }}>
+          Enter
+        </Button>
+      </div>
+    );
+  }
+
+}
+
+class ExtraPoint extends Slides
+{
+constructor(props)
+{
+super(props);
+
+}
+
+render()
+{
+return(
+<button
+        className="extrapoint"
+        onClick={() => this.handleClick()}
+      >
+        {this.props.value}
+      </button>
+    );
+
+}
+}
+
+// If you want to start measuring performance in youb app,  a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+//reportWebVitals();
+export default App;
