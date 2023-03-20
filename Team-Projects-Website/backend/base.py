@@ -1,8 +1,15 @@
-from flask import Flask
+from flask import Flask, jsonify, request, make_response
 
-api = Flask(__name__)
+app = Flask(__name__)
 
-@api.route('/profile')
+@app.route('/')
+def hello_world():
+    data = {
+        "message": "hello world"
+    }
+    return data
+
+@app.route('/profile')
 def my_profile():
     response_body = {
         "name": "Nagato",
@@ -10,3 +17,10 @@ def my_profile():
     }
 
     return response_body
+
+@app.route('/view-projects')
+def view_projects():
+    return 
+
+if __name__ == '__main__':
+    app.run()
