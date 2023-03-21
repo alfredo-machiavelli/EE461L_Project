@@ -1,0 +1,25 @@
+<style>
+
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: navy;
+  margin-left: 20px;
+}
+
+.Randomheader
+{
+ color: yellow;
+    margin-left: 20px;
+
+}
+#P1
+{
+    margin-left: 80px;
+}
+button:hover {
+        background-color: darkred;
+      }
+</style>
