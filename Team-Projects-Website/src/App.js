@@ -1,44 +1,47 @@
-import { useState } from 'react'
-import axios from "axios";
+import { useState, useEffect } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Projects from './components/ProjectsList'
+import Auth from './components/Auth'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './stylesheet.css'
+import SignIn from './components/SignIn'
+import SignUp from './components/SignUp'
 
 function App() {
 
-   // new line start
-  const [profileData, setProfileData] = useState(null)
+  const [profileData, setProfileData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  function getData() {
-    axios({
-      method: "GET",
-      url:"/profile",
-    })
-    .then((response) => {
-      const res =response.data
-      setProfileData(({
-        profile_name: res.name,
-        about_me: res.about}))
-    }).catch((error) => {
-      if (error.response) {
-        console.log(error.response)
-        console.log(error.response.status)
-        console.log(error.response.headers)
-        }
-    })}
-    //end of new line 
+function getProfile() {
+  fetch('/profile')
+  .then((response) => response.json())
+  .then((data) => {setLoading(false)
+    setProfileData({
+      profile_name: data.name,
+      about_me: data.about
+      })
+    }
+  )
+  .catch((error) => {
+    if (error.response) {
+      console.log(error.response)
+      console.log(error.response.status)
+      console.log(error.response.headers)
+      }
+    }
+  )
+}
 
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* new line start*/}
-        <p>To get your profile details: </p><button onClick={getData}>Click me</button>
-        {profileData && <div>
-              <p>Profile name: {profileData.profile_name}</p>
-              <p>About me: {profileData.about_me}</p>
-            </div>
-        }
-         {/* end of new line */}
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/view-projects" element={<Projects/>} />
+        <Route exact path="/sign-in" element={<SignIn/>} />
+        <Route exact path="/sign-up" element={<SignUp/>} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
 export default App;
