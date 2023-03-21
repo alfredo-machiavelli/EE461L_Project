@@ -6,14 +6,15 @@ from getpass import getpass
 from bson.json_util import dumps
 from pymongo import MongoClient
 import pymongo
-class UserHomePage:
+# class UserHomePage:
+#
+#
+# # def AccessHardware(self):
+# #
+# #
+# # def Projects(self):
+# #
+# # def ProfileInfo(self):
+#
 
-
-def AccessHardware(self):
-
-
-def Projects(self):
-
-def ProfileInfo(self):
-    
 
