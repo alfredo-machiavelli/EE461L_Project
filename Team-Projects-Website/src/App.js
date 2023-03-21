@@ -1,6 +1,11 @@
 import { useState, useEffect } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Projects from './components/ProjectsList'
-import "./stylesheet.css"
+import Auth from './components/Auth'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './stylesheet.css'
+import SignIn from './components/SignIn'
+import SignUp from './components/SignUp'
 
 function App() {
 
@@ -8,7 +13,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-useEffect(() => {
+function getProfile() {
   fetch('/profile')
   .then((response) => response.json())
   .then((data) => {setLoading(false)
@@ -26,15 +31,16 @@ useEffect(() => {
       }
     }
   )
-}, [])
+}
 
   return (
-    <>
-      <div className="App">
-        {loading && <p>Loading...</p>}
-        {!loading && <p>{ profileData.about_me }</p>}
-      </div>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/view-projects" element={<Projects/>} />
+        <Route exact path="/sign-in" element={<SignIn/>} />
+        <Route exact path="/sign-up" element={<SignUp/>} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
